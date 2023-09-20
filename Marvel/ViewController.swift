@@ -11,7 +11,16 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let api = Model()
+        Task {
+            do {
+                let result = try await api.fetchCharacters()
+                print(result)
+            } catch {
+                print(error)
+            }
+        }
     }
 
 

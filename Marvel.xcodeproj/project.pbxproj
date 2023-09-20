@@ -13,6 +13,9 @@
 		56E1AE1F2AB9AEAA008F2522 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56E1AE1D2AB9AEAA008F2522 /* Main.storyboard */; };
 		56E1AE212AB9AEAC008F2522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56E1AE202AB9AEAC008F2522 /* Assets.xcassets */; };
 		56E1AE242AB9AEAC008F2522 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56E1AE222AB9AEAC008F2522 /* LaunchScreen.storyboard */; };
+		56E1AE2D2ABAEBFA008F2522 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E1AE2C2ABAEBFA008F2522 /* Model.swift */; };
+		56E1AE302ABAEC96008F2522 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E1AE2F2ABAEC96008F2522 /* Constants.swift */; };
+		56E1AE332ABAF019008F2522 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E1AE322ABAF019008F2522 /* Crypto.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		56E1AE202AB9AEAC008F2522 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56E1AE232AB9AEAC008F2522 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		56E1AE252AB9AEAC008F2522 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56E1AE2C2ABAEBFA008F2522 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		56E1AE2F2ABAEC96008F2522 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		56E1AE322ABAF019008F2522 /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,9 @@
 		56E1AE162AB9AEAA008F2522 /* Marvel */ = {
 			isa = PBXGroup;
 			children = (
+				56E1AE312ABAEFFC008F2522 /* Base */,
+				56E1AE2E2ABAEC8A008F2522 /* Constants */,
+				56E1AE2B2ABAEB87008F2522 /* Model */,
 				56E1AE172AB9AEAA008F2522 /* AppDelegate.swift */,
 				56E1AE192AB9AEAA008F2522 /* SceneDelegate.swift */,
 				56E1AE1B2AB9AEAA008F2522 /* ViewController.swift */,
@@ -65,6 +74,30 @@
 				56E1AE252AB9AEAC008F2522 /* Info.plist */,
 			);
 			path = Marvel;
+			sourceTree = "<group>";
+		};
+		56E1AE2B2ABAEB87008F2522 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				56E1AE2C2ABAEBFA008F2522 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		56E1AE2E2ABAEC8A008F2522 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				56E1AE2F2ABAEC96008F2522 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		56E1AE312ABAEFFC008F2522 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				56E1AE322ABAF019008F2522 /* Crypto.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +171,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56E1AE332ABAF019008F2522 /* Crypto.swift in Sources */,
+				56E1AE302ABAEC96008F2522 /* Constants.swift in Sources */,
 				56E1AE1C2AB9AEAA008F2522 /* ViewController.swift in Sources */,
 				56E1AE182AB9AEAA008F2522 /* AppDelegate.swift in Sources */,
 				56E1AE1A2AB9AEAA008F2522 /* SceneDelegate.swift in Sources */,
+				56E1AE2D2ABAEBFA008F2522 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
