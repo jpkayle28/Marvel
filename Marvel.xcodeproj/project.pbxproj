@@ -13,9 +13,12 @@
 		56E1AE1F2AB9AEAA008F2522 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56E1AE1D2AB9AEAA008F2522 /* Main.storyboard */; };
 		56E1AE212AB9AEAC008F2522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56E1AE202AB9AEAC008F2522 /* Assets.xcassets */; };
 		56E1AE242AB9AEAC008F2522 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56E1AE222AB9AEAC008F2522 /* LaunchScreen.storyboard */; };
-		56E1AE2D2ABAEBFA008F2522 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E1AE2C2ABAEBFA008F2522 /* Model.swift */; };
+		56E1AE2D2ABAEBFA008F2522 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E1AE2C2ABAEBFA008F2522 /* NetworkClient.swift */; };
 		56E1AE302ABAEC96008F2522 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E1AE2F2ABAEC96008F2522 /* Constants.swift */; };
 		56E1AE332ABAF019008F2522 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E1AE322ABAF019008F2522 /* Crypto.swift */; };
+		56E1AE362ABB13AA008F2522 /* Data+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E1AE352ABB13A9008F2522 /* Data+Ext.swift */; };
+		56E1AE382ABB152A008F2522 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E1AE372ABB152A008F2522 /* NetworkError.swift */; };
+		56E1AE3C2ABB15A7008F2522 /* Constants+APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E1AE3B2ABB15A7008F2522 /* Constants+APIEndpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,9 +30,12 @@
 		56E1AE202AB9AEAC008F2522 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56E1AE232AB9AEAC008F2522 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		56E1AE252AB9AEAC008F2522 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		56E1AE2C2ABAEBFA008F2522 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		56E1AE2C2ABAEBFA008F2522 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		56E1AE2F2ABAEC96008F2522 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		56E1AE322ABAF019008F2522 /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
+		56E1AE352ABB13A9008F2522 /* Data+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Ext.swift"; sourceTree = "<group>"; };
+		56E1AE372ABB152A008F2522 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		56E1AE3B2ABB15A7008F2522 /* Constants+APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+APIEndpoint.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +70,6 @@
 			children = (
 				56E1AE312ABAEFFC008F2522 /* Base */,
 				56E1AE2E2ABAEC8A008F2522 /* Constants */,
-				56E1AE2B2ABAEB87008F2522 /* Model */,
 				56E1AE172AB9AEAA008F2522 /* AppDelegate.swift */,
 				56E1AE192AB9AEAA008F2522 /* SceneDelegate.swift */,
 				56E1AE1B2AB9AEAA008F2522 /* ViewController.swift */,
@@ -72,22 +77,25 @@
 				56E1AE202AB9AEAC008F2522 /* Assets.xcassets */,
 				56E1AE222AB9AEAC008F2522 /* LaunchScreen.storyboard */,
 				56E1AE252AB9AEAC008F2522 /* Info.plist */,
+				56E1AE342ABB139A008F2522 /* Extensions */,
 			);
 			path = Marvel;
 			sourceTree = "<group>";
 		};
-		56E1AE2B2ABAEB87008F2522 /* Model */ = {
+		56E1AE2B2ABAEB87008F2522 /* Network Layer */ = {
 			isa = PBXGroup;
 			children = (
-				56E1AE2C2ABAEBFA008F2522 /* Model.swift */,
+				56E1AE2C2ABAEBFA008F2522 /* NetworkClient.swift */,
+				56E1AE372ABB152A008F2522 /* NetworkError.swift */,
 			);
-			path = Model;
+			path = "Network Layer";
 			sourceTree = "<group>";
 		};
 		56E1AE2E2ABAEC8A008F2522 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
 				56E1AE2F2ABAEC96008F2522 /* Constants.swift */,
+				56E1AE3B2ABB15A7008F2522 /* Constants+APIEndpoint.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -95,9 +103,34 @@
 		56E1AE312ABAEFFC008F2522 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				56E1AE322ABAF019008F2522 /* Crypto.swift */,
+				56E1AE392ABB1567008F2522 /* Cryto */,
+				56E1AE2B2ABAEB87008F2522 /* Network Layer */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		56E1AE342ABB139A008F2522 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				56E1AE3A2ABB157F008F2522 /* Foundation Extensions */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		56E1AE392ABB1567008F2522 /* Cryto */ = {
+			isa = PBXGroup;
+			children = (
+				56E1AE322ABAF019008F2522 /* Crypto.swift */,
+			);
+			path = Cryto;
+			sourceTree = "<group>";
+		};
+		56E1AE3A2ABB157F008F2522 /* Foundation Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				56E1AE352ABB13A9008F2522 /* Data+Ext.swift */,
+			);
+			path = "Foundation Extensions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,11 +205,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				56E1AE332ABAF019008F2522 /* Crypto.swift in Sources */,
+				56E1AE382ABB152A008F2522 /* NetworkError.swift in Sources */,
 				56E1AE302ABAEC96008F2522 /* Constants.swift in Sources */,
 				56E1AE1C2AB9AEAA008F2522 /* ViewController.swift in Sources */,
+				56E1AE3C2ABB15A7008F2522 /* Constants+APIEndpoint.swift in Sources */,
 				56E1AE182AB9AEAA008F2522 /* AppDelegate.swift in Sources */,
 				56E1AE1A2AB9AEAA008F2522 /* SceneDelegate.swift in Sources */,
-				56E1AE2D2ABAEBFA008F2522 /* Model.swift in Sources */,
+				56E1AE2D2ABAEBFA008F2522 /* NetworkClient.swift in Sources */,
+				56E1AE362ABB13AA008F2522 /* Data+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,10 +12,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let api = Model()
+        let api = NetworkClient()
         Task {
             do {
-                let result = try await api.fetchCharacters()
+                let result = try await api.sendRequest(.characters)
                 print(result)
             } catch {
                 print(error)
