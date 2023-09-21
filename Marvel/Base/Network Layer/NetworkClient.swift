@@ -9,7 +9,9 @@ import Foundation
 
 class NetworkClient: NSObject {
     
-    func sendRequest(_ api: Constants.APIEndpoint) async throws -> Any {
+    static let shared = NetworkClient()
+    
+    func sendRequest<ObjectType: Decodable>(_ api: Constants.APIEndpoint, objectType: ObjectType.Type = ObjectType.self) async throws -> BaseResponse<DataContainer<ObjectType>> {
         // Building URL
         let constructedHash = constructHash
         
@@ -29,7 +31,8 @@ class NetworkClient: NSObject {
         
         do {
             let (data, _) = try await URLSession.shared.data(for: request)
-            return data
+            let response = try JSONDecoder().decode(BaseResponse<DataContainer<ObjectType>>.self, from: data)
+            return response
         } catch {
             throw error
         }

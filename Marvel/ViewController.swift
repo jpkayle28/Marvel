@@ -9,18 +9,18 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    lazy var charactersViewModel: CharactersViewModel = {
+        let viewModel = CharactersViewModel()
+        viewModel.successObserver.addObserver { [weak self] _ in
+            print(viewModel.items)
+        }
+        return viewModel
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let api = NetworkClient()
-        Task {
-            do {
-                let result = try await api.sendRequest(.characters)
-                print(result)
-            } catch {
-                print(error)
-            }
-        }
+        charactersViewModel.request()
     }
 
 
