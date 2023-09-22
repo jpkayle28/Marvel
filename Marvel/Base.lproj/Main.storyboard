@@ -36,7 +36,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="130.53435114503816" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="117" y="-42"/>
+        </scene>
+        <!--Character Details View Controller-->
+        <scene sceneID="r9L-3g-0iP">
+            <objects>
+                <viewController storyboardIdentifier="CharacterDetailsViewController" id="7Wj-vC-edh" customClass="CharacterDetailsViewController" customModule="Marvel" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gMz-Ff-wgE">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5Ut-R6-fSw">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="tV8-VS-fjQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tV8-VS-fjQ" firstAttribute="trailing" secondItem="5Ut-R6-fSw" secondAttribute="trailing" id="5me-Rf-hea"/>
+                            <constraint firstItem="5Ut-R6-fSw" firstAttribute="leading" secondItem="tV8-VS-fjQ" secondAttribute="leading" id="DcT-Ze-sgF"/>
+                            <constraint firstItem="5Ut-R6-fSw" firstAttribute="top" secondItem="tV8-VS-fjQ" secondAttribute="top" id="LMa-E6-hDI"/>
+                            <constraint firstItem="tV8-VS-fjQ" firstAttribute="bottom" secondItem="5Ut-R6-fSw" secondAttribute="bottom" id="zVp-OZ-sIG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="5Ut-R6-fSw" id="NYk-86-hOP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iL7-wF-rhH" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="885" y="-42"/>
         </scene>
     </scenes>
     <resources>

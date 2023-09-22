@@ -22,6 +22,11 @@ extension Constants {
             "https://gateway.marvel.com/v1/public/"
         }
         
+        private var endPointRawValue: String {
+            let description = String(describing: self).components(separatedBy: "(")
+            return description.first ?? ""
+        }
+        
         var fullPath: String {
             var endpoint: String
             switch self {
@@ -32,7 +37,7 @@ extension Constants {
                         .events(let characterID),
                         .series(let characterID),
                         .stories(let characterID):
-                    endpoint = "\(String(describing: Self.characters))/\(characterID)/\(String(describing: self))"
+                    endpoint = "\(String(describing: Self.characters))/\(characterID)/\(endPointRawValue)"
             }
             return baseURL + endpoint
         }

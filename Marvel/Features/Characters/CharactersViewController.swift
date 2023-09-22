@@ -37,7 +37,7 @@ class CharactersViewController: BaseListingViewController {
         charactersListViewModel = getCurrentGenericListingViewModel(CharactersListingViewModel.self)
         charactersListViewModel?.actionHandler = { [weak self] indexPath in
             guard let indexPath, let character = self?.charactersListViewModel?.genericItemAtIndexPath(indexPath) else { return }
-            print(character)
+            self?.navigationController?.pushViewController(Router.characterDetailsVC(character), animated: true)
         }
         charactersViewModel.request()
     }
