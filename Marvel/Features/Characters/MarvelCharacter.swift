@@ -1,5 +1,5 @@
 //
-//  CharactersResponse.swift
+//  MarvelCharacter.swift
 //  Marvel
 //
 //  Created by Jean-Pierre Kayle on 21/09/2023.
