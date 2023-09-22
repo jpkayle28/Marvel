@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Characters: Decodable {
+struct MarvelCharacter: Decodable {
     
     var id: Int?
     var name: String?

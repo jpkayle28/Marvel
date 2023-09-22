@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CharactersViewModel: BaseViewModel<Characters> {
+class CharactersViewModel: BaseViewModel<MarvelCharacter> {
     
     override func request() {
         super.request()

@@ -13,4 +13,13 @@ extension NSObject {
         return NSClassFromString(_className) != nil
     }
     
+    static var typeName: String {
+        return String(describing: self)
+    }
+    
+    var typeName: String {
+        let thisType = type(of: self)
+        return String(describing: thisType)
+    }
+    
 }
