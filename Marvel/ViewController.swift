@@ -8,11 +8,15 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var imageView: BaseImageView!
 
     lazy var charactersViewModel: CharactersViewModel = {
         let viewModel = CharactersViewModel()
         viewModel.successObserver.addObserver { [weak self] _ in
-            print(viewModel.items)
+            self?.loadImageWith(thumbnail: viewModel.items?.first?.thumbnail)
         }
         return viewModel
     }()
@@ -24,5 +28,9 @@ class ViewController: UIViewController {
     }
 
 
+    func loadImageWith(thumbnail: Thumbnail?) {
+        imageView.load(with: thumbnail?.imageURL)
+    }
+    
 }
 
