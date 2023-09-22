@@ -46,6 +46,7 @@
 		56F352872ABDBE790066AB28 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F352862ABDBE790066AB28 /* BaseViewController.swift */; };
 		56F352892ABDBEFC0066AB28 /* BaseListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F352882ABDBEFC0066AB28 /* BaseListingViewController.swift */; };
 		56F3528B2ABDC34D0066AB28 /* CharactersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F3528A2ABDC34D0066AB28 /* CharactersRouter.swift */; };
+		56F3528D2ABE25B90066AB28 /* LoaderOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F3528C2ABE25B90066AB28 /* LoaderOverlayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +91,7 @@
 		56F352862ABDBE790066AB28 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		56F352882ABDBEFC0066AB28 /* BaseListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListingViewController.swift; sourceTree = "<group>"; };
 		56F3528A2ABDC34D0066AB28 /* CharactersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersRouter.swift; sourceTree = "<group>"; };
+		56F3528C2ABE25B90066AB28 /* LoaderOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderOverlayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +262,7 @@
 				56F3527D2ABDBA220066AB28 /* ImageTableViewCell.swift */,
 				56F352862ABDBE790066AB28 /* BaseViewController.swift */,
 				56F352882ABDBEFC0066AB28 /* BaseListingViewController.swift */,
+				56F3528C2ABE25B90066AB28 /* LoaderOverlayView.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				56E1AE382ABB152A008F2522 /* NetworkError.swift in Sources */,
 				56E1AE302ABAEC96008F2522 /* Constants.swift in Sources */,
 				56E1AE1C2AB9AEAA008F2522 /* CharactersViewController.swift in Sources */,
+				56F3528D2ABE25B90066AB28 /* LoaderOverlayView.swift in Sources */,
 				56F352642ABD88A40066AB28 /* BaseImageView.swift in Sources */,
 				56E4FA592ABC3B3E00B60225 /* Observation.swift in Sources */,
 				56F3527A2ABDB7DD0066AB28 /* ListingViewModel+TableViewExtension.swift in Sources */,

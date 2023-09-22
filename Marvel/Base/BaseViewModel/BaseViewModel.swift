@@ -11,13 +11,11 @@ class BaseViewModel<ResponseObjectType: Decodable>: NSObject {
     
     // MARK: Observers
     var loaderObserver: Observation<Bool>?
-    var errorObserver: Observation<Error>?
-    lazy var successObserver: Observation<BaseResponse<DataContainer<ResponseObjectType>>> = Observation()
+    lazy var responseObserver: Observation<Result<BaseResponse<DataContainer<ResponseObjectType>>, Error>> = Observation()
     
     // MARK: - Initializer
-    init(_ loaderObserver: Observation<Bool>? = nil, _ errorObserver: Observation<Error>? = nil) {
+    init(_ loaderObserver: Observation<Bool>? = nil) {
         self.loaderObserver = loaderObserver
-        self.errorObserver = errorObserver
         super.init()
     }
     
@@ -40,13 +38,13 @@ class BaseViewModel<ResponseObjectType: Decodable>: NSObject {
     // When the request succeeds, fire the success observer with the response returned
     func requestSucceeded(_ response: BaseResponse<DataContainer<ResponseObjectType>>) {
         loaderObserver?.value = false
-        successObserver.value = response
+        responseObserver.value = .success(response)
     }
     
     // When the request fails, fire the error observer with the error returned
     func requestFailed(_ error: Error) {
         loaderObserver?.value = false
-        errorObserver?.value = error
+        responseObserver.value = .failure(error)
     }
     
     
@@ -55,7 +53,12 @@ class BaseViewModel<ResponseObjectType: Decodable>: NSObject {
 extension BaseViewModel {
     
     var items: [ResponseObjectType]? {
-        return successObserver.value?.data?.results
+        switch responseObserver.value {
+            case .success(let response):
+                return response.data?.results
+            default:
+                return []
+        }
     }
     
 }

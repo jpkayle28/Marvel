@@ -36,6 +36,13 @@ extension Constants {
             }
             return baseURL + endpoint
         }
+        
+        var limit: String? {
+            switch self {
+                case .characters: return nil
+                default: return "3"
+            }
+        }
     }
     
 }

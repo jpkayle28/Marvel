@@ -12,10 +12,17 @@ class CharactersViewController: BaseListingViewController {
     // MARK: - Outlets
     
     lazy var charactersViewModel: CharactersViewModel = {
-        let viewModel = CharactersViewModel()
-        viewModel.successObserver.addObserver { [weak self] _ in
-            self?.charactersListViewModel?.setupItems(self?.charactersViewModel.items)
-            self?.reloadTableViewData()
+        let viewModel = CharactersViewModel(loaderObserver)
+        viewModel.responseObserver.addObserver { [weak self] result in
+            switch result {
+                case .success(_):
+                    self?.charactersListViewModel?.setupItems(self?.charactersViewModel.items)
+                    self?.reloadTableViewData()
+                case .failure(let error):
+                    self?.showAlert(title: "Error", message: error.localizedDescription)
+                case .none: break
+            }
+            
         }
         return viewModel
     }()

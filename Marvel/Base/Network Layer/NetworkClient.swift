@@ -23,6 +23,11 @@ class NetworkClient: NSObject {
             URLQueryItem(name: "hash", value: constructedHash.hash)
         ]
         
+        // Adding Limit Parameter
+        if let limit = api.limit {
+            urlComponents.queryItems?.append(URLQueryItem(name: "limit", value: limit))
+        }
+        
         // Validating URL
         guard let url = urlComponents.url else { throw NetworkError.invalidURLComponents }
         
