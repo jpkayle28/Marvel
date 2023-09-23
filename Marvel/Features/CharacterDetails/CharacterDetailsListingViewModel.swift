@@ -12,8 +12,9 @@ class CharacterDetailsListingViewModel: SectionsListingViewModel {
     private lazy var comicsSection = [Comic]()
     private lazy var eventsSection = [Event]()
     private lazy var seriesSection = [Serie]()
+    private lazy var storiesSection = [Story]()
     
-    var item: (character: MarvelCharacter, comics: [Comic]?, events: [Event]?, series: [Serie]?)? {
+    var item: (character: MarvelCharacter, comics: [Comic]?, events: [Event]?, series: [Serie]?, stories: [Story]?)? {
         didSet {
             populateSections()
             setupComponents()
@@ -21,7 +22,7 @@ class CharacterDetailsListingViewModel: SectionsListingViewModel {
     }
     
     override var cellIdentifiers: [String]? {
-        return ["CharacterCell", "ComicCell", "EventCell"]
+        return ["CharacterCell", "ComicCell", "EventCell", "StoryCell"]
     }
     
     override var headerIdentifiers: [String]? {
@@ -37,6 +38,7 @@ class CharacterDetailsListingViewModel: SectionsListingViewModel {
         setupComics()
         setupEvents()
         setupSeries()
+        setupStories()
     }
     
     private func populateSections() {
@@ -44,6 +46,7 @@ class CharacterDetailsListingViewModel: SectionsListingViewModel {
         comicsSection = item.comics ?? []
         eventsSection = item.events ?? []
         seriesSection = item.series ?? []
+        storiesSection = item.stories ?? []
     }
     
 }
@@ -76,6 +79,13 @@ extension CharacterDetailsListingViewModel {
         let seriesSectionHeader = SectionBorder("CharacterHeader", height: 80, data: "Series")
         let seriesSection = SectionWithUniqueCell(seriesSectionHeader, cellIdentifier: "EventCell", data: seriesSection)
         addSectionItem(seriesSection)
+    }
+    
+    private func setupStories() {
+        guard storiesSection.count > 0 else { return }
+        let storiesSectionHeader = SectionBorder("CharacterHeader", height: 80, data: "Stories")
+        let storiesSection = SectionWithUniqueCell(storiesSectionHeader, cellIdentifier: "StoryCell", data: storiesSection)
+        addSectionItem(storiesSection)
     }
     
 }

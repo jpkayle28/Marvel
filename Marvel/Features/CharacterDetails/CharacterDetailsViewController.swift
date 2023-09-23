@@ -85,7 +85,7 @@ class CharacterDetailsViewController: BaseListingViewController {
         dispatchGroup.notify(queue: .main) { [weak self] in
             guard let self else { return }
             self.hideLoader()
-            self.characterDetailsListingViewModel?.item = (self.character, self.comicsViewModel.items, self.eventsViewModel.items, self.seriesViewModel.items)
+            self.characterDetailsListingViewModel?.item = (self.character, self.comicsViewModel.items, self.eventsViewModel.items, self.seriesViewModel.items, self.storiesViewModel.items)
             self.reloadTableViewData()
         }
     }
