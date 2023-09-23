@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Serie: Decodable {
+struct Serie: CharacterDetailObject {
     
     var id: Int?
     var title: String?

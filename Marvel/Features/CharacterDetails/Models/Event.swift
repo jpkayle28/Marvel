@@ -7,10 +7,20 @@
 
 import Foundation
 
-struct Event: Decodable {
+protocol CharacterDetailObject: Decodable {
+    
+    var id: Int? { get set }
+    var title: String? { get set }
+    var description: String? { get set }
+    var thumbnail: Thumbnail? { get set }
+    
+}
+
+struct Event: CharacterDetailObject {
     
     var id: Int?
-    var title, description: String?
+    var title: String?
+    var description: String?
     var thumbnail: Thumbnail?
     
 }

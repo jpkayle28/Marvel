@@ -19,7 +19,6 @@ class CharacterDetailsViewController: BaseListingViewController {
         let viewModel = ComicsViewModel()
         viewModel.character = self?.character
         viewModel.responseObserver.addObserver { [weak self] result in
-            print(result)
             self?.dispatchGroup.leave()
         }
         return viewModel
@@ -29,7 +28,6 @@ class CharacterDetailsViewController: BaseListingViewController {
         let viewModel = EventsViewModel()
         viewModel.character = self?.character
         viewModel.responseObserver.addObserver { [weak self] result in
-            print(result)
             self?.dispatchGroup.leave()
         }
         return viewModel
@@ -39,7 +37,6 @@ class CharacterDetailsViewController: BaseListingViewController {
         let viewModel = SeriesViewModel()
         viewModel.character = self?.character
         viewModel.responseObserver.addObserver { [weak self] result in
-            print(result)
             self?.dispatchGroup.leave()
         }
         return viewModel
@@ -49,7 +46,6 @@ class CharacterDetailsViewController: BaseListingViewController {
         let viewModel = StoriesViewModel()
         viewModel.character = self?.character
         viewModel.responseObserver.addObserver { [weak self] result in
-            print(result)
             self?.dispatchGroup.leave()
         }
         return viewModel
@@ -89,7 +85,7 @@ class CharacterDetailsViewController: BaseListingViewController {
         dispatchGroup.notify(queue: .main) { [weak self] in
             guard let self else { return }
             self.hideLoader()
-            self.characterDetailsListingViewModel?.item = (self.character, self.comicsViewModel.items, self.eventsViewModel.items)
+            self.characterDetailsListingViewModel?.item = (self.character, self.comicsViewModel.items, self.eventsViewModel.items, self.seriesViewModel.items)
             self.reloadTableViewData()
         }
     }

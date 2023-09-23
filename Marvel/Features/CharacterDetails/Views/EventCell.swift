@@ -13,9 +13,11 @@ class EventCell: ImageTableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var topConstraint: NSLayoutConstraint?
+    @IBOutlet weak var centerConstraint: NSLayoutConstraint?
     
     // MARK: - Data Property
-    private var data: Event? {
+    private var data: CharacterDetailObject? {
         didSet {
             fillData()
         }
@@ -28,7 +30,9 @@ class EventCell: ImageTableViewCell {
         imageV.load(with: item.thumbnail?.imageURL)
         nameLabel.text = item.title
         descriptionLabel.text = item.description
-        descriptionLabel.isHidden = descriptionLabel.text?.isEmpty ?? false
+        descriptionLabel.isHidden = descriptionLabel.text?.isEmpty ?? true
+        topConstraint?.isActive = !descriptionLabel.isHidden
+        centerConstraint?.isActive = descriptionLabel.isHidden
     }
     
 }
@@ -37,7 +41,7 @@ class EventCell: ImageTableViewCell {
 extension EventCell: BaseLayoutFromDataProtocol {
     
     func updateLayoutFromData(_ data: Any?) {
-        if let data = data as? Event {
+        if let data = data as? CharacterDetailObject {
             self.data = data
         }
     }
