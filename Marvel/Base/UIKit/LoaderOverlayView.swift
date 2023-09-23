@@ -9,7 +9,9 @@ import UIKit
 
 class LoaderOverlayView: UIView {
     
-    private let activityIndicatorView = UIActivityIndicatorView(style: .large)
+    var style: UIActivityIndicatorView.Style = .large
+    
+    private let activityIndicatorView = UIActivityIndicatorView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,6 +25,7 @@ class LoaderOverlayView: UIView {
     
     private func setupView() {
         backgroundColor = UIColor(white: 0, alpha: 0.7)
+        activityIndicatorView.style = style
         activityIndicatorView.color = .white
         activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
         

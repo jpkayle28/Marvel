@@ -36,11 +36,8 @@ struct ImageManager {
             }
             
             var imageData: Data?
-            var imageUrlResponse: URLResponse?
-            var imageError: Error?
             
             let requestResponse = try await session.data(for: urlRequest)
-            imageUrlResponse = requestResponse.1
             imageData = requestResponse.0
             
             
@@ -64,6 +61,8 @@ struct ImageManager {
         }
         return imageTask
     }
+    
+    // MARK: - Unused: Could be used to store images in FileManager
     
     private static func saveImage(_ imageData: Data?, folderName: String? = nil, fileName: String? = nil, fileExtension: String? = nil) throws {
         guard let imageData else {

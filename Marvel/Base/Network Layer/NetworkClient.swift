@@ -32,7 +32,7 @@ class NetworkClient: NSObject {
         guard let url = urlComponents.url else { throw NetworkError.invalidURLComponents }
         
         // Creating URL Request
-        let request = URLRequest(url: url)
+        let request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 30)
         
         do {
             let (data, _) = try await URLSession.shared.data(for: request)
