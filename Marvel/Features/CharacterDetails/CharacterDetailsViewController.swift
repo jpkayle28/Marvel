@@ -11,7 +11,7 @@ class CharacterDetailsViewController: BaseListingViewController {
     
     // MARK: - Injected Property
     
-    var character: MarvelCharacter?
+    var character: MarvelCharacter!
     
     // MARK: - ViewModels
     
@@ -87,9 +87,10 @@ class CharacterDetailsViewController: BaseListingViewController {
         storiesViewModel.request()
         
         dispatchGroup.notify(queue: .main) { [weak self] in
-            self?.hideLoader()
-            self?.characterDetailsListingViewModel?.item = (self?.comicsViewModel.items, self?.eventsViewModel.items)
-            self?.reloadTableViewData()
+            guard let self else { return }
+            self.hideLoader()
+            self.characterDetailsListingViewModel?.item = (self.character, self.comicsViewModel.items, self.eventsViewModel.items)
+            self.reloadTableViewData()
         }
     }
 }

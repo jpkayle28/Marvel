@@ -9,17 +9,6 @@ import UIKit
 
 class BaseImageView: UIImageView {
     
-    // MARK: - Inspectables
-    
-    @IBInspectable var cornerRadius: CGFloat {
-        get {
-            return layer.cornerRadius
-        }
-        set {
-            layer.cornerRadius = newValue
-        }
-    }
-    
     // MARK: - Image Loading
     
     private var task: Task<UIImage, Error>?

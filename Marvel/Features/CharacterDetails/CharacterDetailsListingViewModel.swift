@@ -12,7 +12,7 @@ class CharacterDetailsListingViewModel: SectionsListingViewModel {
     private lazy var comicsSection = [Comic]()
     private lazy var eventsSection = [Event]()
     
-    var item: (comics: [Comic]?, events: [Event]?)? {
+    var item: (character: MarvelCharacter, comics: [Comic]?, events: [Event]?)? {
         didSet {
             populateSections()
             setupComponents()
@@ -20,7 +20,7 @@ class CharacterDetailsListingViewModel: SectionsListingViewModel {
     }
     
     override var cellIdentifiers: [String]? {
-        return ["ComicCell", "EventCell"]
+        return ["CharacterCell", "ComicCell", "EventCell"]
     }
     
     override var headerIdentifiers: [String]? {
@@ -32,6 +32,7 @@ class CharacterDetailsListingViewModel: SectionsListingViewModel {
     }
     
     private func setupComponents() {
+        setupCharacter()
         setupComics()
         setupEvents()
     }
@@ -46,6 +47,11 @@ class CharacterDetailsListingViewModel: SectionsListingViewModel {
 
 // MARK: - Sections Setup
 extension CharacterDetailsListingViewModel {
+    
+    private func setupCharacter() {
+        let characterSection = SectionWithUniqueCell(cellIdentifier: "CharacterCell", data: [item?.character])
+        addSectionItem(characterSection)
+    }
     
     private func setupComics() {
         guard comicsSection.count > 0 else { return }
