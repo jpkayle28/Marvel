@@ -59,10 +59,18 @@ class CharacterDetailsViewController: BaseListingViewController {
     
     let dispatchGroup = DispatchGroup()
     
+    // MARK: - Listing ViewModel
+    
+    var characterDetailsListingViewModel: CharacterDetailsListingViewModel?
+    override var GenericListingViewModelType: ListingViewModel.Type {
+        return CharacterDetailsListingViewModel.self
+    }
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        characterDetailsListingViewModel = getCurrentGenericListingViewModel(CharacterDetailsListingViewModel.self)
         
         callViewModels()
     }
@@ -80,6 +88,8 @@ class CharacterDetailsViewController: BaseListingViewController {
         
         dispatchGroup.notify(queue: .main) { [weak self] in
             self?.hideLoader()
+            self?.characterDetailsListingViewModel?.item = (self?.comicsViewModel.items, self?.eventsViewModel.items)
+            self?.reloadTableViewData()
         }
     }
 }

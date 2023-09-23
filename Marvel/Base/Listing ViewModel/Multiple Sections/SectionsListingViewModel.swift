@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class SectionsListingViewModel: ListingViewModel, SectionsListingDataSourceProtocol, MainListingWithSectionFooter, MainListingWithSectionHeader {
     
@@ -41,7 +42,7 @@ class SectionsListingViewModel: ListingViewModel, SectionsListingDataSourceProto
     }
     
     override func rowHeightIndex(_ indexPath: IndexPath) -> CGFloat {
-        return sections[indexPath.section].rowHeight(indexPath.row) ?? 0.0
+        return sections[indexPath.section].rowHeight(indexPath.row) ?? UITableView.automaticDimension
     }
     
     override func itemAtIndexPath(_ indexPath: IndexPath) -> Any? {
@@ -60,7 +61,7 @@ class SectionsListingViewModel: ListingViewModel, SectionsListingDataSourceProto
     // MARK: - MainListingWithFooterHeader
     
     func sectionFooterAtSection(_ section: Int) -> SectionBorder? {
-        return sections[section].footerHeader
+        return sections[section].sectionFooter
     }
     
     // MARK: - Expandable

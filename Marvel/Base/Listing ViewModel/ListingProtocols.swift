@@ -27,7 +27,7 @@ protocol BaseSectionInputProtocol {
     
     var numberOfRowsPerSection: Int { get }
     var sectionHeader: SectionBorder? { get set }
-    var footerHeader: SectionBorder? { get set }
+    var sectionFooter: SectionBorder? { get set }
     var expandSection: Bool { get set }
     var rowDatas: [Any]? { get }
     
@@ -35,6 +35,21 @@ protocol BaseSectionInputProtocol {
     func rowHeight(_ row: Int) -> CGFloat?
     func rowWidth(_ row: Int) -> CGFloat?
     func rowItem(_ row: Int) -> Any?
+}
+
+protocol SectionWithUniqueCellProtocol: BaseSectionInputProtocol, SectionExtrasMethodsProtocol {
+    
+    var cellIdentifier: String? { get set }
+    var rowHeight: CGFloat? { get set }
+    var rowWidth: CGFloat? { get set }
+    var data: [Any]? { get set }
+}
+
+//// Section UI Expand Protcocol
+
+protocol SectionUIExpandedProtocol {
+    
+    var expanded: Bool { get set }
 }
 
 ///  TableView
@@ -106,4 +121,12 @@ protocol ListingDataSourceProtocolGeneric {
     associatedtype GenericType
     
     func genericItemAtIndexPath(_ indexPath: IndexPath) -> GenericType?
+}
+
+//// Header And Footer UI Protocol
+
+protocol HeaderAndFooterUIProtocol {
+    
+    func updateUILayoutItem(_ uiItem: Any?)
+    
 }

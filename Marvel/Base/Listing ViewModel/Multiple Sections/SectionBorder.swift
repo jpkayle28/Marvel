@@ -17,7 +17,7 @@ class SectionBorder {
     var width: CGFloat?
     var uiItem: Any?
     
-    init(_ sectionIdentifier: String, height: CGFloat, width: CGFloat? = nil, sectionBorderTintColor: UIColor = UIColor.white, data: Any? = nil, uiItem: Any? = nil) {
+    init(_ sectionIdentifier: String, height: CGFloat, width: CGFloat? = nil, sectionBorderTintColor: UIColor = UIColor.clear, data: Any? = nil, uiItem: Any? = nil) {
         self.sectionBorderIdentifier = sectionIdentifier
         self.height = height
         self.width = width

@@ -27,10 +27,14 @@ class CharactersViewController: BaseListingViewController {
         return viewModel
     }()
     
+    // MARK: - Listing ViewModel
+    
     var charactersListViewModel: CharactersListingViewModel?
     override var GenericListingViewModelType: ListingViewModel.Type {
         return CharactersListingViewModel.self
     }
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
